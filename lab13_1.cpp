@@ -19,3 +19,44 @@ int main(){
     cout << "Min = " << B[5];
     return 0;
 }
+
+void stat(const double K[], int n , double P[]){
+    double a = 0;
+    double b = 0;
+    double c = 0;
+    double d = 0;
+    double A = K[0];
+    double B = K[0];
+    
+    for (int i = 0; i < n; i++)
+    {
+        a += K[i];
+        b += pow(K[i], 2);
+        c += log(K[i]);
+        d += 1/K[i];
+        if (K[i] > A)A = K[i];
+        if (K[i] < B)B = K[i];            
+    }
+   
+    P[0] = a / n;
+
+   
+    P[1] = sqrt((b / n) - pow(P[0], 2));
+
+  
+    P[2] = exp(c / n);
+
+  
+    P[3] = n / d;
+
+
+    P[4] = A;
+
+    
+    P[5] = B;
+    
+
+
+
+    
+}
